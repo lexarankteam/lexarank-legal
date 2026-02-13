@@ -1,82 +1,215 @@
-<h1>Terms of Service</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terms of Service - LexaRank</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-black: #030712;
+            --neon-aqua: #00f5d4;
+            --neon-purple: #9d50bb;
+            --text-main: #cbd5e1;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.1);
+        }
 
-<p>Last updated: 13.02.2026</p>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-<p>By downloading, accessing, or using LexaRank (the "Service"), you agree to be bound by these Terms of Service. If you do not agree, please do not use the Service.</p>
+        /* Scrollbar Teması */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-black); }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(var(--neon-purple), var(--neon-aqua)); 
+            border-radius: 10px; 
+        }
 
-<h2>1. Eligibility</h2>
-<p>You must be at least 13 years old to use the Service. If you are under 18, you must have permission from a parent or legal guardian.</p>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-black);
+            color: var(--text-main);
+            line-height: 1.8;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            padding: 40px 20px;
+            position: relative;
+            overflow-x: hidden;
+        }
 
-<h2>2. Accounts</h2>
-<p>You are responsible for maintaining the confidentiality of your account credentials and for all activities that occur under your account.</p>
+        /* Arka plan Glow Effect */
+        .glow-sphere {
+            position: fixed;
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            filter: blur(100px);
+            z-index: -1;
+            opacity: 0.25;
+        }
+        /* Terms sayfasında renklerin yerini hafif değiştirdim ki fark olsun */
+        .glow-aqua { background: var(--neon-aqua); bottom: -100px; left: -100px; }
+        .glow-purple { background: var(--neon-purple); top: -100px; right: -100px; }
 
-<p>You agree to provide accurate information and not impersonate any other person or entity.</p>
+        .content-card {
+            width: 100%;
+            max-width: 850px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(25px);
+            -webkit-backdrop-filter: blur(25px);
+            border: 1px solid var(--glass-border);
+            border-radius: 32px;
+            padding: 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+        }
 
-<p>We reserve the right to suspend or terminate accounts that violate these Terms.</p>
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            color: var(--neon-aqua);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 30px;
+            transition: 0.3s;
+        }
+        .back-btn:hover { transform: translateX(-5px); opacity: 0.8; }
 
-<h2>3. Virtual Currency, Energy & Subscriptions</h2>
+        h1 {
+            font-size: clamp(32px, 5vw, 42px);
+            font-weight: 800;
+            color: #fff;
+            margin-bottom: 10px;
+            letter-spacing: -1px;
+        }
 
-<p>LexaRank may include virtual currency ("Coins"). Coins may be earned through gameplay, watching advertisements, promotional activities, or purchased with real money through Apple App Store or Google Play.</p>
+        .last-update {
+            font-size: 14px;
+            color: var(--neon-purple);
+            font-weight: 600;
+            margin-bottom: 40px;
+            display: block;
+            letter-spacing: 1px;
+        }
 
-<p>Coins may be used to:</p>
-<ul>
-<li>Purchase cosmetic items</li>
-<li>Obtain in-game energy for additional gameplay sessions</li>
-</ul>
+        h2 {
+            color: var(--neon-aqua);
+            font-size: 24px;
+            margin: 40px 0 20px 0;
+            border-left: 4px solid var(--neon-aqua);
+            padding-left: 15px;
+        }
 
-<p>Free users may have limited energy. Subscribers may receive increased or unlimited energy as part of their subscription benefits.</p>
+        p { margin-bottom: 20px; }
 
-<p>Coins, energy, and virtual items:</p>
-<ul>
-<li>Are non-transferable</li>
-<li>Have no real-world monetary value</li>
-<li>Cannot be exchanged for real currency</li>
-</ul>
+        ul {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
 
-<p>Purchasing coins, energy, or subscriptions does not guarantee leaderboard ranking, competitive success, or specific in-game results. Rankings depend primarily on player performance and skill.</p>
+        li {
+            margin-bottom: 10px;
+            list-style: none;
+            position: relative;
+        }
 
-<p>All purchases and subscriptions are processed by Apple App Store or Google Play. Refunds are governed solely by the respective platform policies.</p>
+        li::before {
+            content: "→";
+            position: absolute;
+            left: -20px;
+            color: var(--neon-purple);
+            font-weight: bold;
+        }
 
-<h2>4. Fair Play & Competition</h2>
+        a {
+            color: var(--neon-aqua);
+            text-decoration: none;
+            border-bottom: 1px dashed var(--neon-aqua);
+            transition: 0.3s;
+        }
 
-<p>You agree not to cheat, exploit bugs, use automation tools, manipulate rankings, or attempt to gain unfair advantages in league or PvP modes.</p>
+        a:hover { background: rgba(0, 245, 212, 0.1); }
 
-<p>We reserve the right to investigate suspicious activity and reset scores, remove rankings, suspend, or permanently terminate accounts involved in abuse.</p>
+        /* Önemli kısımları vurgulamak için mini box */
+        .highlight-box {
+            background: rgba(157, 80, 187, 0.1);
+            border: 1px solid rgba(157, 80, 187, 0.2);
+            padding: 20px;
+            border-radius: 16px;
+            margin: 20px 0;
+        }
 
-<h2>5. Advertisements</h2>
+        .footer-note {
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid var(--glass-border);
+            text-align: center;
+            font-size: 13px;
+            color: rgba(255,255,255,0.3);
+        }
 
-<p>The Service may display third-party advertisements. We are not responsible for the content, accuracy, or practices of third-party advertisers.</p>
+        @media (max-width: 600px) {
+            .content-card { padding: 30px 20px; border-radius: 20px; }
+            h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
 
-<h2>6. User-Generated Content</h2>
+    <div class="glow-sphere glow-aqua"></div>
+    <div class="glow-sphere glow-purple"></div>
 
-<p>If you share achievements or other content, you grant LexaRank a non-exclusive, worldwide, royalty-free license to display such content within the Service.</p>
+    <main class="content-card">
+        <a href="index.html" class="back-btn">← Back to Home</a>
+        
+        <h1>Terms of Service</h1>
+        <span class="last-update">LAST UPDATED: 13.02.2026</span>
 
-<p>Usernames and shared content must not contain offensive, abusive, illegal, or inappropriate material. We reserve the right to modify or remove any content that violates community standards.</p>
+        <p>By downloading, accessing, or using <strong>LexaRank</strong> (the "Service"), you agree to be bound by these Terms of Service. If you do not agree, please do not use the Service.</p>
 
-<h2>7. Account Deletion</h2>
+        <h2>1. Eligibility</h2>
+        <p>You must be at least 13 years old to use the Service. If you are under 18, you must have permission from a parent or legal guardian.</p>
 
-<p>You may delete your account at any time using the in-app account deletion feature. Upon deletion, your access to the Service will terminate, and associated data will be removed in accordance with our Privacy Policy.</p>
+        <h2>2. Accounts</h2>
+        <p>You are responsible for maintaining the confidentiality of your account credentials. We reserve the right to suspend or terminate accounts that violate these Terms or engage in suspicious activity.</p>
 
-<h2>8. Intellectual Property</h2>
+        <h2>3. Virtual Currency, Energy & Subscriptions</h2>
+        <div class="highlight-box">
+            <p>LexaRank may include virtual currency (<strong>"Coins"</strong>). Coins may be earned through gameplay or purchased through official stores.</p>
+            <ul>
+                <li>Coins are used for cosmetic items and Energy.</li>
+                <li>Coins and Virtual items have <strong>no real-world monetary value</strong>.</li>
+                <li>They are non-transferable and non-refundable.</li>
+            </ul>
+        </div>
+        <p>Purchasing coins or subscriptions does not guarantee competitive success; rankings depend primarily on player performance and skill.</p>
 
-<p>All content, trademarks, logos, game mechanics, and materials within the Service are owned by or licensed to LexaRank. You may not copy, modify, distribute, or exploit any part of the Service without prior written permission.</p>
+        <h2>4. Fair Play & Competition</h2>
+        <p>You agree not to cheat, exploit bugs, use automation tools (bots), or manipulate rankings. We take fair play seriously and will reset scores or ban accounts found in violation.</p>
 
-<h2>9. Limitation of Liability</h2>
+        <h2>5. Intellectual Property</h2>
+        <p>All content, game mechanics, logos, and materials within LexaRank are owned by or licensed to us. You may not copy, modify, or distribute any part of the Service without permission.</p>
 
-<p>The Service is provided "as is" and "as available" without warranties of any kind. To the maximum extent permitted by law, LexaRank shall not be liable for indirect, incidental, special, consequential, or punitive damages arising from your use of the Service.</p>
+        <h2>6. Account Deletion</h2>
+        <p>You can delete your account at any time using the <strong>in-app account deletion</strong> feature. Once deleted, data removal is handled as per our Privacy Policy.</p>
 
-<h2>10. Modifications to the Service</h2>
+        <h2>7. Limitation of Liability</h2>
+        <p>The Service is provided "as is". LexaRank shall not be liable for any indirect or consequential damages arising from your use of the application.</p>
 
-<p>We reserve the right to modify, suspend, or discontinue any part of the Service, including features, virtual items, or subscription benefits, at any time without prior notice.</p>
+        <h2>8. Contact Us</h2>
+        <p>If you have any questions regarding these Terms, contact our legal team at: <br>
+        <a href="mailto:lexarank.team@gmail.com">lexarank.team@gmail.com</a></p>
 
-<h2>11. Changes to These Terms</h2>
+        <div class="footer-note">
+            © 2024 LexaRank Team. All rights reserved.
+        </div>
+    </main>
 
-<p>We may update these Terms from time to time. Continued use of the Service after changes become effective constitutes acceptance of the revised Terms.</p>
-
-<h2>12. Governing Law</h2>
-
-<p>These Terms shall be governed by and interpreted in accordance with applicable laws, without regard to conflict of law principles.</p>
-
-<h2>13. Contact</h2>
-
-<p>If you have any questions regarding these Terms, contact us at: lexarank.team@gmail.com</p>
+</body>
+</html>
