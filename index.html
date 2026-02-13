@@ -178,7 +178,25 @@
             font-size: 12px;
             color: rgba(255, 255, 255, 0.3);
         }
+/* İndirme Bölümü Stilleri */
+        .download-section {
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 1px dashed var(--glass-border);
+        }
 
+        .download-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .download-btn {
+            padding: 12px !important;
+            font-size: 12px !important;
+            background: rgba(157, 80, 187, 0.05) !important;
+        }
         .badge {
             display: inline-block;
             margin-top: 15px;
@@ -221,6 +239,15 @@
                 </ul>
             </div>
 
+<!-- Topluluğumuza Katılın Bölümü -->
+            <div class="download-section">
+                <h2 class="section-title">Topluluğumuza Katılın</h2>
+                <div class="download-grid">
+                    <a href="www.lexarank.com/ios_app" class="download-btn">Android</a>
+                    <a href="www.lexarank.com/android_app" class="download-btn">iOS</a>
+                </div>
+            </div>
+            
             <div class="footer">
                 <p>© 2026 LexaRank Team</p>
                 <div class="badge">V1.0.0 BETA</div>
